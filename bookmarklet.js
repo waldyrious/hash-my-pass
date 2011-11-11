@@ -116,18 +116,10 @@ function doIt() {
       E = F[i].elements;
       for (j = 0; j < E.length; j++) {
         D = E[j];
-        if (D.type == 'password') {
+        if (D.type == 'password' || (D.type == 'text' && D.name.match(/p(ass|w(or)?d?)/i) ) ) {
           D.value = p;
           D.focus();
           g = true;
-        }
-        if (D.type == 'text') {
-          if (D.name.toUpperCase().indexOf('PASSWORD') != -1 || D.name.toUpperCase().indexOf('PASSWD') != -1) {
-            D.value = p;
-            D.focus();
-            g = true;
-          }
-        }
       }
     }
     if (!g) {
