@@ -100,13 +100,13 @@ function binb2b64(binarray) {
 function doIt() {
   var master = window.prompt('Enter your master password');
   if (master != '' && master != null) {
-    host = document.location.hostname;
-    // select only the second-level domain (i.e, disregard subdomains so that they're treated as the same site)
-    if (sld = host.match( /([^.]+\.([a-z][a-z][a-z]+|a(m|s|x)|bg|c(f|l|z)|d(e|j|k)|eu|fm|fo|gl|gm|hm|io|km|la|ly|m(d|e|n|p|q|r)|nc|nu|s(i|m|n|r|t|u|z)|td|tk|uz|vc|vu|ws))$/i )) {
-      domain = sld[0];
-    } else { // in case we have something like co.uk, use the third level domain
-      domain = host.match( /([^.]+\.[^.]+\.[a-z][a-z])$/i )[0];
-    }
+    // remove the http(s):// and the www, www1, etc.
+    host = document.location.hostname.match( /^(www\d?\.)?([^\/]+)/ )[2];
+    // disregard subdomains so that they're treated as the same site
+    // KNOWN ISSUE: this captures the last digit of IP addresses. We should probably fail it and drop to the else instruction instead.
+    if (noSubDomain = host.match( /[^.]+(\.(aero|arpa|asia|biz|cat|com|coop|co|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|xxx))?(\.[a-z]{2})?$/ )) {
+      domain = noSubDomain[0];
+    } else { domain = host; }
     var i = 0,
         j = 0,
         p = b64_sha1(master+':'+domain).substr(0,8)+'1a',
