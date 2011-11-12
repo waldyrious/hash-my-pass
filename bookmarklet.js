@@ -97,13 +97,37 @@ function binb2b64(binarray) {
   return str;
 }
 
-function doIt() {
-  if (typeof master === "undefined" || master === "") {
-    master = window.prompt('Enter your master password');
-  }
+function pressHashMyPass() {
+
+  var overlayDiv = document.createElement('div');
+  var overlayDivName = 'overlay';
+  overlayDiv.setAttribute('id',overlayDivName);
+  overlayDiv.setAttribute("style","height:100%; width:100%; position:fixed; left:0; top:0; z-index:1 !important; background-color:black; opacity: 0.75;");
+  document.body.appendChild(overlayDiv);
+
+  var newdiv = document.createElement('div');
+  var divIdName = 'hashMypAssBox';
+  newdiv.setAttribute('id',divIdName);
+  newdiv.setAttribute("style","padding:10px; background-color: #dfdfdf; -moz-border-radius:5px; -webkit-border-radius:5px;border-radius:5px; position:fixed; top:30%; left:40%; z-index:2!important;");
+
+  newdiv.innerHTML = '<form action="" method="post" style="margin:0" id="HMP"><label for="passwordHashMypAssword">Enter your master password</label><br><input type="password" id="passwordHashMypAssword" width="100" \/\><br><input type="submit" name="send" value="submit" onclick="javascript:doIt(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');"><a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton" style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a></form>';
+
+  document.body.appendChild(newdiv);
+  document.getElementById("passwordHashMypAssword").focus();
+}
+
+function removeElement(parentDiv,childDiv){	
+  var parent = document.getElementById(parentDiv);
+  document.body.removeChild(parent);
+  var child = document.getElementById(childDiv);
+  document.body.removeChild(child);
+}
+
+function doIt(master) {
   if (master !== '' && master !== null) {
     // remove the http(s):// and the www, www1, etc.
-    var host = document.location.hostname.match( /^(www\d?\.)?([^\/]+)/ )[2];
+    //var host = document.location.hostname.match( /^(www\d?\.)?([^\/]+)/ )[2];
+    var host = document.location.href.match( /^[^:]+?:\/\/\/?(www\d?\.)?([^\/]+)/ )[2];
     // disregard subdomains so that they're treated as the same site
     // KNOWN ISSUE: this captures the last digit of IP addresses. We should probably fail it and drop to the else instruction instead.
     var domain, noSubDomain;
@@ -167,6 +191,7 @@ function doIt() {
         F = document.forms,
         g = false;
     for (i = 0; i < F.length; i++) {
+      if(F[i].id=="HMP") continue; //don't fill our own form :)
       var E = F[i].elements;
       for (j = 0; j < E.length; j++) {
         var D = E[j];
@@ -184,5 +209,13 @@ function doIt() {
   }
 }
 
-doIt();
-void(null);
+function init() {
+  if (typeof masterpw === "undefined" || masterpw === "") {
+    pressHashMyPass();
+  } else {
+    doIt(masterpw);
+  }
+}
+
+init();
+//void(null);
