@@ -107,6 +107,18 @@ function doIt() {
     if (noSubDomain = host.match( /[^.]+(\.(aero|arpa|asia|biz|cat|com|coop|co|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|xxx))?(\.[a-z]{2})?$/ )) {
       domain = noSubDomain[0];
     } else { domain = host; }
+    // sites at different domains that share the same accounts and must therefore use the same password
+    // even if someone uses different accounts, it still works
+    // (they'll simply use the same password accross that network of sites)
+    var merge = {
+       "wikipedia.org" : /^(wiki([pm]edia|books|source|quote|news|species)|mediawiki|wiktionary)\.org$/,
+       "example.com" : /example\.com/
+    }
+    for(i in merge)
+    {
+      if ( domain.match(merge[i]) );
+      domain = i;
+    }
     var i = 0,
         j = 0,
         p = b64_sha1(master+':'+domain).substr(0,8)+'1a',
