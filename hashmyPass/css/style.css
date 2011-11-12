@@ -117,7 +117,7 @@ article .textArticle{ font-size:1.3em;}
 
 figure{border:1px solid #142830;float:right;height:300px;margin-left:15px;overflow:hidden;width:500px}
 figure:hover{-moz-box-shadow:0 0 2px #4D7788;-webkit-box-shadow:0 0 2px #4D7788;box-shadow:0 0 2px #4D7788}
-figure img{margin-left:-60px}
+figure img{margin-left:0px}
 
 footer{margin-bottom:30px;text-align:center;font-size:.825em}
 footer p{margin-bottom:-2.5em;position:relative}
