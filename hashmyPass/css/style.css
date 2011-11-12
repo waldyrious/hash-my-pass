@@ -220,7 +220,7 @@ footer a.up{float:right}
 .hashMypAssBoxGenerate form fieldset legend{text-shadow:0 1px 1px #000; font-size:1.5rem; margin-bottom:10px;}
 .hashMypAssBoxGenerate form fieldset label{ color:#565656; font-size:1.1rem; display:none;}
 
-.hashOrBox{position:absolute; margin-left:485px; margin-top:150px; width:100px; height:100px;}
+.hashOrBox{position:absolute; margin-left:485px; margin-top:80px; width:100px; height:100px;}
 .hashOrBox h5{text-shadow:0 1px 1px #000; font-size:5.0rem; margin:0 0 10px 0;}
 /* ==|== non-semantic helper classes ======================================== */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }

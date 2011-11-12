@@ -62,7 +62,7 @@
                         
                         <div class="buttonOver">
                         <h3>Drag ME!!</h3>
-                        <a href="javascript:pressHashMyPass()" class="hashMypAssButton" title="Button to call HashMypAss">HashMypAss</a>
+                        <a href="javascript:alert('HashMypAss');" class="hashMypAssButton" title="Button to call HashMypAss">HashMypAss</a>
                         <p>You can login but I will always ask for your password</p>
                         </div><!--end buttonOver-->
                         
@@ -74,6 +74,9 @@
                         <p>We will never ask your password ever again. </p>
                         </div><!--end generateButton-->
                         
+                        <div id="markletContainer" class="generateButton" style="display:none; margin-top:255px;">
+                            <a href="" class="hashMypAssButton" title="Button to call HashMypAss">DragMe</a>
+                        </div>
                         
                         <div class="hashOrBox">
                         	<h5>OR</h5>
@@ -206,7 +209,19 @@
 		  
      
 	}
-	
+    
+    $(document).ready(function(){
+        $('form').live('submit', function(){
+            var form = $( this );
+            var input = form.find('#passwordHashMypAssword');
+            console.log(input.val());
+            var code = $('.hashMypAssButton').attr('href');
+            console.log($('#markletContainer a'));
+            $('#markletContainer a').attr('href', "javascript:var master='"+input.val()+"';"+code);
+            $('#markletContainer').show('slow');
+            event.preventDefault();
+        });
+    });
 	
   </script>
 
