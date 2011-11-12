@@ -177,8 +177,8 @@ footer a.up{float:right}
 #hashMypAssBox form fieldset{}
 #hashMypAssBox form fieldset legend{text-shadow:0 1px 1px #000; font-size:2rem; margin-bottom:10px;}
 #hashMypAssBox form fieldset label{ color:#565656; font-size:1.1rem; display:none;}
-#hashMypAssBox form fieldset input[type=password]{ padding:2px 3px 2px 0; color:#777777; font-size:26px; font-family: 'Convergence', sans-serif; width:190px; size:190px; margin:5px 0 15px 0; letter-spacing:10px;}
-#hashMypAssBox form fieldset input[type=submit]{-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+#hashMypAssBox form fieldset input[type=password],.hashMypAssBoxGenerate form input[type=password]{ padding:2px 3px 2px 0; color:#777777; font-size:26px; font-family: 'Convergence', sans-serif; width:190px; size:190px; margin:5px 0 15px 0; letter-spacing:10px;}
+#hashMypAssBox form fieldset input[type=submit],.hashMypAssBoxGenerate form input[type=submit]{-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
 	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
@@ -202,7 +202,7 @@ footer a.up{float:right}
 
 
 
-#hashMypAssBox form fieldset input[type=submit]:hover{background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
+#hashMypAssBox form fieldset input[type=submit]:hover,.hashMypAssBoxGenerate form input[type=submit]:hover{background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
 	background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
 	background-color:#378de5;}
@@ -212,8 +212,16 @@ footer a.up{float:right}
 
 .closeButton{ float:left; margin:10px 0;}
 
+.buttonOver{ position:absolute; margin-left:435px; margin-top:10px; width:180px;}
+.buttonOver h3{text-shadow:0 1px 1px #000; font-size:1.5rem; margin-bottom:10px;}
 
+.generateButton{position:absolute; margin-left:705px; margin-top:100px; width:200px;}
+.hashMypAssBoxGenerate{}
+.hashMypAssBoxGenerate form fieldset legend{text-shadow:0 1px 1px #000; font-size:1.5rem; margin-bottom:10px;}
+.hashMypAssBoxGenerate form fieldset label{ color:#565656; font-size:1.1rem; display:none;}
 
+.hashOrBox{position:absolute; margin-left:485px; margin-top:150px; width:100px; height:100px;}
+.hashOrBox h5{text-shadow:0 1px 1px #000; font-size:5.0rem; margin:0 0 10px 0;}
 /* ==|== non-semantic helper classes ======================================== */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
