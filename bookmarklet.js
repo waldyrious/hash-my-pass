@@ -129,7 +129,14 @@ function doIt() {
     String.prototype.replaceAt = function(index, repStr) {
       return this.substr(0, index) + repStr + this.substr(index+repStr.toString().length);
     };
+    // Get a "random" number so that different passwords aren't enhanced
+    // in the same way. 
     var seed = p.charCodeAt(0);
+    // Choose the position to insert the number.
+    // By applying the modulo we make sure that the index where we'll insert 
+    // the digit is always inside the length of the string. This index is
+    // always the same for a given password, but it will change for different 
+    // passwords.
     var posNum = seed % p.length;
     if (!p.match(/\d/)) {
       var num = seed % 10; // only one digit
@@ -147,8 +154,10 @@ function doIt() {
       }
     }
     if (allowSymbols) {
+      // The symbol, like the digit, is also chosen in a semi-random way
+      // and added to a semi-random position
       var posSym = p.length - posNum - 1;
-      if(posSym === posNum) { posSym++; }
+      if(posSym === posNum) { posSym++; } // don't add to the same position as the number
       var sym = String.fromCharCode( 32 + seed%15 ); // symbols: chars 32 to 46
       p = p.replaceAt(posSym, sym);
     }
