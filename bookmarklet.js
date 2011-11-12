@@ -112,21 +112,51 @@ function doIt() {
     // (they'll simply use the same password accross that network of sites)
     var merge = {
        "wikipedia.org" : /^(wiki([pm]edia|books|source|quote|news|species)|mediawiki|wiktionary)\.org$/,
-       "example.com" : /example\.com/
+       "example.com" : /example\.(com|org|net)/
     }
-    for(i in merge)
+    for(var i in merge) {
+      if ( domain.match(merge[i]) ) {
+        domain = i;
+      }
+    }
+    // Generate a password that should be fairly secure and work on most websites:
+    // 8 chars, upper and lowercase letters and numbers
+    var pw = b64_sha1(master+':'+domain).substr(0,8);
+    // Make sure it includes at least one number
+    String.prototype.replaceAt = function(index, char) {
+      return this.substr(0, index) + char + this.substr(index+char.toString().length);
+    }
+    var seed = str.charCodeAt(0);
+    var posNum = seed % str.length;
+    if (!str.match(/\d/)) {
+      num = seed % 10; // only one digit
+      str = str.replaceAt(posNum, num);
+    }
+    // Also include a special character (symbol/punctuation)
+    // Some websites forbid these, so we'll account for that here
+    var allowSymbols = true;
+    var noSymbols = new Array("mecanto.com", "tvtropes.org");
+    for(var i in noSymbols)
     {
-      if ( domain.match(merge[i]) );
-      domain = i;
+      if ( domain.match(noSymbols[i]) ) {
+        allowSymbols = false;
+        break;
+      }
     }
+    if (allowSymbols) {
+      posSym = str.length - posNum - 1;
+      if(posSym == posNum) posSym++;
+      sym = String.fromCharCode( 32 + seed%15 ); // symbols: chars 32 to 46
+      str = str.replaceAt(posSym, sym);
+    }
+    // Attempt to fill the password forms automatically
     var i = 0,
         j = 0,
-        p = b64_sha1(master+':'+domain).substr(0,8)+'1a',
         F = document.forms,
         g = false;
-    for (i = 0; i < F.length; i++) {
+    for (var i = 0; i < F.length; i++) {
       E = F[i].elements;
-      for (j = 0; j < E.length; j++) {
+      for (var j = 0; j < E.length; j++) {
         D = E[j];
         if (D.type == 'password' || (D.type == 'text' && D.name.match(/p(ass|w(or)?d?)/i) ) ) {
           D.value = p;
@@ -134,6 +164,7 @@ function doIt() {
           g = true;
       }
     }
+    // If the password input field couldn't be found, give the password to the user
     if (!g) {
       window.prompt('Your password for '+domain+' is', p)
     }
