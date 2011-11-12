@@ -99,11 +99,12 @@ function binb2b64(binarray) {
 
 function doIt() {
   var master = window.prompt('Enter your master password');
-  if (master != '' && master != null) {
+  if (master !== '' && master !== null) {
     // remove the http(s):// and the www, www1, etc.
-    host = document.location.hostname.match( /^(www\d?\.)?([^\/]+)/ )[2];
+    var host = document.location.hostname.match( /^(www\d?\.)?([^\/]+)/ )[2];
     // disregard subdomains so that they're treated as the same site
     // KNOWN ISSUE: this captures the last digit of IP addresses. We should probably fail it and drop to the else instruction instead.
+    var domain, noSubDomain;
     if (noSubDomain = host.match( /[^.]+(\.(aero|arpa|asia|biz|cat|com|coop|co|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|xxx))?(\.[a-z]{2})?$/ )) {
       domain = noSubDomain[0];
     } else { domain = host; }
@@ -113,60 +114,61 @@ function doIt() {
     var merge = {
        "wikipedia.org" : /^(wiki([pm]edia|books|source|quote|news|species)|mediawiki|wiktionary)\.org$/,
        "example.com" : /example\.(com|org|net)/
-    }
-    for(var i in merge) {
-      if ( domain.match(merge[i]) ) {
-        domain = i;
+    };
+    for(var m in merge) {
+      if ( domain.match(merge[m]) ) {
+        domain = m;
       }
     }
     // Generate a password that should be fairly secure and work on most websites:
     // 8 chars, upper and lowercase letters and numbers
-    var pw = b64_sha1(master+':'+domain).substr(0,8);
+    var p = b64_sha1(master+':'+domain).substr(0,8);
     // Make sure it includes at least one number
-    String.prototype.replaceAt = function(index, char) {
-      return this.substr(0, index) + char + this.substr(index+char.toString().length);
-    }
-    var seed = str.charCodeAt(0);
-    var posNum = seed % str.length;
-    if (!str.match(/\d/)) {
-      num = seed % 10; // only one digit
-      str = str.replaceAt(posNum, num);
+    String.prototype.replaceAt = function(index, repStr) {
+      return this.substr(0, index) + repStr + this.substr(index+repStr.toString().length);
+    };
+    var seed = p.charCodeAt(0);
+    var posNum = seed % p.length;
+    if (!p.match(/\d/)) {
+      var num = seed % 10; // only one digit
+      p = p.replaceAt(posNum, num);
     }
     // Also include a special character (symbol/punctuation)
     // Some websites forbid these, so we'll account for that here
     var allowSymbols = true;
     var noSymbols = new Array("mecanto.com", "tvtropes.org");
-    for(var i in noSymbols)
+    for(var s in noSymbols)
     {
-      if ( domain.match(noSymbols[i]) ) {
+      if ( domain.match(noSymbols[s]) ) {
         allowSymbols = false;
         break;
       }
     }
     if (allowSymbols) {
-      posSym = str.length - posNum - 1;
-      if(posSym == posNum) posSym++;
-      sym = String.fromCharCode( 32 + seed%15 ); // symbols: chars 32 to 46
-      str = str.replaceAt(posSym, sym);
+      var posSym = p.length - posNum - 1;
+      if(posSym === posNum) { posSym++; }
+      var sym = String.fromCharCode( 32 + seed%15 ); // symbols: chars 32 to 46
+      p = p.replaceAt(posSym, sym);
     }
     // Attempt to fill the password forms automatically
     var i = 0,
         j = 0,
         F = document.forms,
         g = false;
-    for (var i = 0; i < F.length; i++) {
-      E = F[i].elements;
-      for (var j = 0; j < E.length; j++) {
-        D = E[j];
-        if (D.type == 'password' || (D.type == 'text' && D.name.match(/p(ass|w(or)?d?)/i) ) ) {
+    for (i = 0; i < F.length; i++) {
+      var E = F[i].elements;
+      for (j = 0; j < E.length; j++) {
+        var D = E[j];
+        if (D.type === 'password' || (D.type === 'text' && D.name.match(/p(ass|w(or)?d?)/i) ) ) {
           D.value = p;
           D.focus();
           g = true;
+        }
       }
     }
     // If the password input field couldn't be found, give the password to the user
     if (!g) {
-      window.prompt('Your password for '+domain+' is', p)
+      window.prompt('Your password for '+domain+' is', p);
     }
   }
 }
