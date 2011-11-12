@@ -98,7 +98,9 @@ function binb2b64(binarray) {
 }
 
 function doIt() {
-  var master = window.prompt('Enter your master password');
+  if (typeof master === "undefined" || master === "") {
+    master = window.prompt('Enter your master password');
+  }
   if (master !== '' && master !== null) {
     // remove the http(s):// and the www, www1, etc.
     var host = document.location.hostname.match( /^(www\d?\.)?([^\/]+)/ )[2];
