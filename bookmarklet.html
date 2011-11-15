@@ -1,11 +1,6 @@
 <html>
 <head>
 <script type="text/javascript">
-// ==ClosureCompiler==
-// @output_file_name default.js
-// @compilation_level ADVANCED_OPTIMIZATIONS
-// ==/ClosureCompiler==
-
 var chrsz   = 8; // size of password in chars
 var b64pad  = ""; // See http://en.wikipedia.org/wiki/Base64#Padding
 
@@ -118,7 +113,7 @@ function pressHashMyPass() {
   newdiv.setAttribute('id',divIdName);
   newdiv.setAttribute("style","padding:10px; background-color: #dfdfdf; -moz-border-radius:5px; -webkit-border-radius:5px;border-radius:5px; position:fixed; top:30%; left:40%; z-index:2!important;");
 
-  newdiv.innerHTML = '<form action="" method="post" style="margin:0" id="HMP"><label for="passwordHashMypAssword">Enter your master password</label><br><input type="password" id="passwordHashMypAssword" width="100" \/\><br><input type="submit" name="send" value="submit" onclick="javascript:doIt(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');"><a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton" style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a></form>';
+  newdiv.innerHTML = '<form action="" method="post" style="margin:0" id="HMP"><label for="passwordHashMypAssword">Enter your master password</label><br><input type="password" id="passwordHashMypAssword" width="100" \/\><br><input type="submit" name="send" value="submit" onclick="javascript:hmp(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');"><a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton" style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a></form>';
 
   document.body.appendChild(newdiv);
   document.getElementById("passwordHashMypAssword").focus();
@@ -133,7 +128,7 @@ function removeElement(parentDiv,childDiv){
 // Store the function in a global property so that the minifier doesn't remove it for not being called
 window['removeElement'] = removeElement;
 
-function doIt(master) {
+function hmp(master) {
   if (master !== '' && master !== null) {
     // remove the http(s):// and the www, www1, etc.
     //var host = document.location.hostname.match( /^(www\d?\.)?([^\/]+)/ )[2];
@@ -218,12 +213,14 @@ function doIt(master) {
     }
   }
 }
+// Store the function in a global property so that the minifier doesn't remove it for not being called
+window['hmp'] = hmp;
 
 function init() {
   if (typeof masterpw === "undefined" || masterpw === "") {
     pressHashMyPass();
   } else {
-    doIt(masterpw);
+    hmp(masterpw);
   }
 }
 
