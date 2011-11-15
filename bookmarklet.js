@@ -1,3 +1,8 @@
+// ==ClosureCompiler==
+// @output_file_name default.js
+// @compilation_level ADVANCED_OPTIMIZATIONS
+// ==/ClosureCompiler==
+
 var chrsz   = 8; // size of password in chars
 var b64pad  = ""; // See http://en.wikipedia.org/wiki/Base64#Padding
 
@@ -122,6 +127,8 @@ function removeElement(parentDiv,childDiv){
   var child = document.getElementById(childDiv);
   document.body.removeChild(child);
 }
+// Store the function in a global property so that the minifier doesn't remove it for not being called
+window['removeElement'] = removeElement;
 
 function doIt(master) {
   if (master !== '' && master !== null) {
