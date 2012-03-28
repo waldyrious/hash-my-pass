@@ -171,7 +171,7 @@ function hmp(master) {
     // Also include a special character (symbol/punctuation)
     // Some websites forbid these, so we'll account for that here
     var allowSymbols = true;
-    var noSymbols = new Array("mecanto.com", "tvtropes.org");
+    var noSymbols = new Array("mecanto.com", "tvtropes.org", "viactt.pt");
     for(var s in noSymbols)
     {
       if ( domain.match(noSymbols[s]) ) {
