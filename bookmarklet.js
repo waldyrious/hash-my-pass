@@ -187,6 +187,11 @@ function hmp(master) {
       var sym = String.fromCharCode( 32 + seed%15 ); // symbols: chars 32 to 46
       p = p.replaceAt(posSym, sym);
     }
+    
+    // Note for future reference: in case we decide to offer lenght customization,
+    // we should account for size limitations in different websites.
+    // For instance, travellerspoint.com only allows passwords 6 to 10 characters long, etc.
+    
     // Attempt to fill the password forms automatically
     var i = 0,
         j = 0,
