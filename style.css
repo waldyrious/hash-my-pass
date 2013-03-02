@@ -73,16 +73,6 @@ body{ font-family: 'Convergence', sans-serif; font-size:10px; color:#fcfcfc;back
 
 div#logo{ font-size:3.4em; text-shadow:1px 1px 2px #000; color:#79a956;}
 
-
-
-
-
-
-
-
-
-
-body{}
 a,a:visited{color:#0196e3;text-decoration:none;outline:none}
 a:hover{text-decoration:underline}
 a img{border:none}
@@ -100,7 +90,9 @@ article .line{background-color:#15242a;border-bottom-color:#204656;margin:1.3em 
 
 footer .line{margin:2em 0}
 
-nav{background:url("../design/gradient_light.jpg") repeat-x 50% 50% #f8f8f8;position:absolute;right:0;top:4em;border:1px solid #FCFCFC;-moz-box-shadow:0 1px 1px #333;-webkit-box-shadow:0 1px 1px #333;box-shadow:0 1px 1px #333;padding:0 5px}
+nav{background-color: #f8f8f8;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background: linear-gradient(to bottom, #dfdfdf 0%, #ededed 100%); position:absolute;right:0;top:4em;border:1px solid #FCFCFC;-moz-box-shadow:0 1px 1px #333;-webkit-box-shadow:0 1px 1px #333;box-shadow:0 1px 1px #333;padding:0 5px}
 
 .clear:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 
@@ -134,7 +126,6 @@ footer a.up{float:right}
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
 	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
 	background-color:#ededed;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -152,7 +143,6 @@ footer a.up{float:right}
 .hashMypAssButton:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
 	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
 	background-color:#dfdfdf;
 	text-decoration:none;
 }
@@ -169,8 +159,7 @@ footer a.up{float:right}
 
 
 #hashMypAssBox{ width:200px; height:170px; padding:10px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
-	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed'); -moz-border-radius:5px; -webkit-border-radius:5px;border-radius:5px;
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% ); -moz-border-radius:5px; -webkit-border-radius:5px;border-radius:5px;
 	position:fixed; top:30%; left:40%; z-index:2!important;
 	}
 #hashMypAssBox form{}
@@ -183,7 +172,6 @@ footer a.up{float:right}
 	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
 	background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
 	background-color:#79bbff;
 	
 	-moz-border-radius:5px;
@@ -204,7 +192,6 @@ footer a.up{float:right}
 
 #hashMypAssBox form fieldset input[type=submit]:hover,.hashMypAssBoxGenerate form input[type=submit]:hover{background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
 	background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
 	background-color:#378de5;}
 
 
