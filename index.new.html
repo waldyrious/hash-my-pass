@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hash My Pass | Use a single password in all your accounts without any security risk!</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Waldir Pimenta, Abel Soares, Sérgio Laranjeira and Miguel Oliveira">
+    <!--<link rel="stylesheet" href="style.css">-->
+  	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+      // Trigger script with the onload event of the html document.
+      // In jQuery this is usually done by passing a function to $(...)
+      $(function(){
+        // Load the minified code from another page, so it can be maintained separately
+        // http://stackoverflow.com/q/8988855/266309
+        $("#bookmarklet").load("bookmarklet.min.html");
+      });
+    </script>
+    <style>
+      section[id]:not(:target) { display: none; }
+      a:focus { outline: none; }
+    </style>
+  </head>
+  <body>
+    <p>Ready-made bookmarklet (just drag to your bookmark bar): <span id="bookmarklet"></span></p>
+    <p>or</p>
+    <p>Generate a personalized bookmarklet that auto-fills your password: [INSERT FORM HERE] [INSERT SECURITY WARNING HERE]</p>
+    <nav>
+      <ul>
+        <li><a href="#what">What?</a></li>
+        <li><a href="#why">Why?</a></li>
+        <li><a href="#how">How?</a></li>
+        <li><a href="#who">Who?</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <section id="what">
+      <p>
+        Hash My Pass is a Javascript bookmarklet
+        that generates passwords guaranteed to be unique for each site
+        so you'll never have to reuse the same password for different sites,
+        which, as everyone knows, is a security risk.
+      </p>
+      <p>
+        The great thing is, you only have to memorize a single master password,
+        and this is NEVER stored anywhere.
+        At the same time, you're without the security problems of sharing passwords across sites.
+      </p>
+    </section>
+    <section id="why">
+        password reuse is unsafe.
+        but remembering different passwords is inconvenient
+    </section>
+    <section id="how">
+      <p>
+        The main concept is based on <b>hashing a single master password
+        with the current site's domain</b>.
+      </p>
+      <p>
+        A hash is not encryption – it cannot be decrypted back to the original text
+        (it is a "one-way" cryptographic function).
+        Therefore, <b>it is impossible to obtain the master password
+        from the generated site-specific password</b>,
+        so even if your acount on one website is compromised,
+        all the other accounts are perfectly safe.
+      </p>
+      <p>
+        Since the hash is always the same given the same inputs,
+        it can be generated on-the-fly, so there's no need to store anything:
+        <b>none of the generated passwords are stored anywhere</b>.
+      </p>
+      <p>
+        As a javascript bookmarklet, it works on the client side,
+        which means that <b>the master password is never sent through the network</b>.
+      </p>
+    </section>
+    <section id="who">
+      <p>
+        Hash My Pass was started as a team project for Codebits 2011.
+        The team members <b>Waldir Pimenta</b>, <b>Abel Soares</b>,
+        <b>Sérgio Laranjeira</b> and <b>Miguel Oliveira</b>
+        had to complete the project from scratch in 48 hours
+        for the Codebits competition.
+      </p>
+
+      <p>
+        The original idea was inspired in Nic Wolff's
+        <a href="http://angel.net/~nic/passwd.sha1.1a.html">Password generator</a>.
+        Hash My Pass improves upon Nic's generator in the following ways:
+      <p>
+      <ul>
+        <li>
+          It is hosted on a publicly available version-control platform (github),
+          and can easily be improved by others, be forked, have pages translated,
+          issues reported, etc.
+        </li>
+        <li>
+          It attempts to cater to the different password requirements
+          (length, allow/forbid alphanum/symbols, etc.) that each site implements.
+        </li>
+        <li>
+          It uses a less cheap hack than appending "1a" to the generated password
+          to make sure that at least a letter and a number is included
+          (and only does so when relevant to the particular site)
+        </li>
+        <li>
+          The bookmarklet prompt doesn't mask the pass.
+          That isn't possible using Javascript's native popup boxes.
+          We solved this by using a lightbox-type prompt emulator
+          that uses an <code>&lt;input type="password"&gt;</code>
+          to provide the masking using HTML's native mechanisms
+        </li>
+        <li>
+          The domain recognition code uses a more powerful regex
+          in order to cover edge cases (country-specific TLDs, for instance).
+        </li>
+      </ul>
+    </section>
+    <section id="faq">
+      <dl>
+        <dt>What if the domain changes?</dt>
+        <dd>
+          ...
+        <dd>
+        <dt>How do I get the password (instead of having it fill the form automatically)?</dt>
+        <dd>
+          ...
+        <dd>
+        <dt>What if I want / need to change my master pass?</dt>
+        <dd>
+          ...
+        <dd>
+        <dt>Isn’t it dangerous to have the password in plaintext javascript?</dt>
+        <dd>
+          ...
+        <dd>
+        <dt>What if someone finds my master password?</dt>
+        <dd>
+          Well, what if they found the current password you use in most websites?
+          Of course Hash My Pass is not 100% secure (nothing is),
+          but it’s still safer than reusing passwords.
+        </dd>
+        <dt>Does this also save my username?</dt>
+        <dd>
+          No. it is very rare to be able to keep your username across websites, so this wouldn’t be very useful.
+          besides, most browsers may save username/password combinations
+          (Of course, make sure to not let other people use your browser profile).
+        <dd>
+      </dl>
+    </section>
+
+    <noscript>
+      <b>Hash My Pass is a JavaScript bookmarklet</b><br>
+      It won't work if you have JavaScript disabled.
+      Please enable JavaScript in your browser preferences.
+    </noscript>
+  </body>
+</html>
