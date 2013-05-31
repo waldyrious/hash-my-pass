@@ -173,6 +173,7 @@ function hmp(master) {
     var allowSymbols = true;
     var noSymbols = new Array(
       "gnome-look.org",
+      "klect.com",
       "mecanto.com",
       "nozbe.com",
       "tvtropes.org",
