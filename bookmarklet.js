@@ -102,25 +102,35 @@ function pressHashMyPass() {
   var overlayDiv = document.createElement('div');
   var overlayDivName = 'overlay';
   overlayDiv.setAttribute('id',overlayDivName);
-  overlayDiv.setAttribute("style","height:100%; width:100%; position:fixed; left:0; top:0; z-index:1 !important; background-color:black; opacity: 0.75;");
+  // Style the overlay
+  overlayDiv.style.height = "100%";
+  overlayDiv.style.width = "100%";
+  overlayDiv.style.position = "fixed";
+  overlayDiv.style.left = 0;
+  overlayDiv.style.top = 0;
+  overlayDiv.style.zIndex = 10000;
+  overlayDiv.style.backgroundColor = "black";
+  overlayDiv.style.opacity = "0.75";
+  // Add it to the DOM
   document.body.appendChild(overlayDiv);
 
-  var newdiv = document.createElement('div');
-  var divIdName = 'hashMypAssBox';
-  newdiv.setAttribute('id',divIdName);
+  var inputBoxDiv = document.createElement('div');
+  var inputBoxDivName = 'hashMypAssBox';
+  inputBoxDiv.setAttribute('id', inputBoxDivName);
   // Style the box
-  newdiv.style.padding = "10px";
-  newdiv.style.backgroundColor = "#dfdfdf";
-  newdiv.style.borderRadius = "5px";
-  newdiv.style.position = "fixed";
-  newdiv.style.top = "30%";
-  newdiv.style.left = "40%";
-  newdiv.style.zIndex ="2";
+  inputBoxDiv.style.padding = "10px";
+  inputBoxDiv.style.backgroundColor = "#dfdfdf";
+  inputBoxDiv.style.borderRadius = "5px";
+  inputBoxDiv.style.position = "fixed";
+  inputBoxDiv.style.top = "30%";
+  inputBoxDiv.style.left = "40%";
+  inputBoxDiv.style.zIndex = 10000;
   // Add the content
-  newdiv.innerHTML = '<label for="passwordHashMypAssword">Enter your master password</label><br><input type="password" id="passwordHashMypAssword" width="100"><br><input type="button" name="send" value="hash!" onclick="javascript:hmp(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');"><a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton" style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a>';
-
-  document.body.appendChild(newdiv);
-  document.getElementById("passwordHashMypAssword").focus();
+  inputBoxDiv.innerHTML = '<label for="hmp-pw">Enter your master password</label><br><input type="password" id="hmp-pw" width="100"><br><input type="button" name="send" value="hash!" onclick="javascript:hmp(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');"><a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton" style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a>';
+  // Add it to the DOM
+  document.body.appendChild(inputBoxDiv);
+  // Focus the input box
+  document.getElementById("hmp-pw").focus();
 }
 
 function removeElement(parentDiv,childDiv){	
