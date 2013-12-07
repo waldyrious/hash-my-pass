@@ -108,14 +108,16 @@ function pressHashMyPass() {
   var newdiv = document.createElement('div');
   var divIdName = 'hashMypAssBox';
   newdiv.setAttribute('id',divIdName);
+  // Style the box
   newdiv.style.padding = "10px";
-  newdiv.style.backgroundColor = #dfdfdf;
-  newdiv.style.borderRadius = 5px;
-  newdiv.style.position:fixed;
-  newdiv.style.top:30%;
-  newdiv.style.left:40%; z-index:2!important;");
-
-  newdiv.innerHTML = '<form action="" method="post" style="margin:0" id="HMP"><label for="passwordHashMypAssword">Enter your master password</label><br><input type="password" id="passwordHashMypAssword" width="100" \/\><br><input type="submit" name="send" value="submit" onclick="javascript:hmp(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');"><a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton" style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a></form>';
+  newdiv.style.backgroundColor = "#dfdfdf";
+  newdiv.style.borderRadius = "5px"";
+  newdiv.style.position = "fixed";
+  newdiv.style.top = "30%";
+  newdiv.style.left = "40%";
+  newdiv.style.zIndex ="2";
+  // Add the content
+  newdiv.innerHTML = '<form action="" method="post" style="margin:0" id="HMP"><label for="passwordHashMypAssword">Enter your master password</label><br><input type="password" id="passwordHashMypAssword" width="100" \/\><br><input type="button" name="send" value="submit" onclick="javascript:hmp(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');"><a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton" style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a></form>';
 
   document.body.appendChild(newdiv);
   document.getElementById("passwordHashMypAssword").focus();
