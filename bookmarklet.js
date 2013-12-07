@@ -60,7 +60,7 @@ function sha1_kt(t) {
          (t < 60) ? -1894007588 : -899497514;
 }
 
-// ROtate bits Left, or Left circular shift
+// ROL = ROtate bits Left, aka Left circular shift
 function bit_rol(num, cnt) {
   return (num << cnt) | (num >>> (32 - cnt));
 }
@@ -108,7 +108,12 @@ function pressHashMyPass() {
   var newdiv = document.createElement('div');
   var divIdName = 'hashMypAssBox';
   newdiv.setAttribute('id',divIdName);
-  newdiv.setAttribute("style","padding:10px; background-color: #dfdfdf; -moz-border-radius:5px; -webkit-border-radius:5px;border-radius:5px; position:fixed; top:30%; left:40%; z-index:2!important;");
+  newdiv.style.padding = "10px";
+  newdiv.style.backgroundColor = #dfdfdf;
+  newdiv.style.borderRadius = 5px;
+  newdiv.style.position:fixed;
+  newdiv.style.top:30%;
+  newdiv.style.left:40%; z-index:2!important;");
 
   newdiv.innerHTML = '<form action="" method="post" style="margin:0" id="HMP"><label for="passwordHashMypAssword">Enter your master password</label><br><input type="password" id="passwordHashMypAssword" width="100" \/\><br><input type="submit" name="send" value="submit" onclick="javascript:hmp(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');"><a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton" style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a></form>';
 
