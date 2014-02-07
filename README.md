@@ -61,5 +61,7 @@ Other implementations of the same concept (AFAIK) are:
   for web accounts only.
 - [SuperGenPass](http://supergenpass.com/).
   Pretty similar, but uses the MD5 hashing algorithm rather than SHA-1.
+  Probably because it's also based on Nic Wolff's version,
+  which originally used MD5.
 
 [![Next up](https://badge.waffle.io/waldir/hash-my-pass.png?label=ready)](http://waffle.io/waldir/hash-my-pass)
