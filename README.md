@@ -29,7 +29,7 @@ Well, there are a few drawbacks to Nic's code:
 2. Different sites have different password requirements
    (length, allow/require/forbid alphanum/symbols, etc.)  
    HashMyPass takes care of this
-   by mainstaining a list of exceptions
+   by maintaining a list of exceptions
    the most commonly accepted format
    (8-char passwords including letters, digits and symbols)
    which was determined by exhaustively testing
