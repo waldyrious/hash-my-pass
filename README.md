@@ -30,7 +30,7 @@ Well, there are a few drawbacks to Nic's code:
    (length, allow/require/forbid alphanum/symbols, etc.)  
    HashMyPass takes care of this
    by maintaining a list of exceptions
-   the most commonly accepted format
+   to the most commonly accepted format
    (8-char passwords including letters, digits and symbols)
    which was determined by exhaustively testing
    the sign-up process at various sites
