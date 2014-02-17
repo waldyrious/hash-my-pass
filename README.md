@@ -63,5 +63,7 @@ Other implementations of the same concept (AFAIK) are:
   Pretty similar, but uses the MD5 hashing algorithm rather than SHA-1.
   Probably because it's also based on Nic Wolff's version,
   which originally used MD5.
+  It also suffers from some of the same problems,
+  namely #1, #2 and #4 above.
 
-[![Next up](https://badge.waffle.io/waldir/hash-my-pass.png?label=ready)](http://waffle.io/waldir/hash-my-pass)
+[![Next up](https://badge.waffle.io/waldir/hash-my-pass.png?label=next-up)](http://waffle.io/waldir/hash-my-pass)
