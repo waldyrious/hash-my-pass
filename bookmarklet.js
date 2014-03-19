@@ -158,12 +158,13 @@ function hmp(master) {
     if (noSubDomain = host.match( /[^.]+(\.(aero|arpa|asia|biz|cat|com|coop|co|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|xxx))?(\.[a-z]{2})?$/ )) {
       domain = noSubDomain[0];
     } else { domain = host; }
-    // sites at different domains that share the same accounts and must therefore use the same password
-    // even if someone uses different accounts, it still works
+    // Use a canonical domain for sites that share the same user accounts over different domains,
+    // so that the hash is the same for that group of sites regardless of the domain.
+    // Even if someone deliberately uses separate accounts for each domain, it still works
     // (they'll simply use the same password accross that network of sites)
     var merge = {
        "wikipedia.org" : /^(wiki([pm]edia|books|source|quote|news|species)|mediawiki|wiktionary)\.org$/,
-       "example.com" : /example\.(com|org|net)/
+       "amazon.com" : /^amazon\.(com|co\.uk)$/
     };
     for(var m in merge) {
       if ( domain.match(merge[m]) ) {
