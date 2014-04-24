@@ -182,10 +182,11 @@ function hmp(master) {
     // in the same way. 
     var seed = p.charCodeAt(0);
     // Choose the position to insert the number.
-    // By applying the modulo we make sure that the index where we'll insert 
-    // the digit is always inside the length of the string. This index is
-    // always the same for a given password, but it will change for different 
-    // passwords.
+    // By applying the modulo, we ensure
+    // that the pseuo-random index where we'll insert the digit
+    // falls within the length of the string.
+    // This index is always the same for a given password,
+    // but it will change for different passwords.
     var posNum = seed % p.length;
     if (!p.match(/\d/)) {
       var num = seed % 10; // only one digit
@@ -211,8 +212,8 @@ function hmp(master) {
       }
     }
     if (allowSymbols) {
-      // The symbol, like the digit, is also chosen in a semi-random way
-      // and added to a semi-random position
+      // The symbol, like the digit, is also chosen in a pseudo-random way
+      // and added to a pseudo-random position
       var posSym = p.length - posNum - 1;
       if(posSym === posNum) { posSym++; } // don't add to the same position as the number
       var sym = String.fromCharCode( 32 + seed%15 ); // symbols: chars 32 to 46
