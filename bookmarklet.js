@@ -183,7 +183,7 @@ function hmp(master) {
     var seed = p.charCodeAt(0);
     // Choose the position to insert the number.
     // By applying the modulo, we ensure
-    // that the pseuo-random index where we'll insert the digit
+    // that the pseudo-random index where we'll insert the digit
     // falls within the length of the string.
     // This index is always the same for a given password,
     // but it will change for different passwords.
