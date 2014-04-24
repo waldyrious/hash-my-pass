@@ -163,7 +163,7 @@ function hmp(master) {
     // Even if someone deliberately uses separate accounts for each domain, it still works
     // (they'll simply use the same password accross that network of sites)
     var merge = {
-       "wikipedia.org" : /^(wiki([pm]edia|books|source|quote|news|species)|mediawiki|wiktionary)\.org$/,
+       "wikipedia.org" : /^(wiki([pm]edia|books|source|quote|news|species|data|voyage)|mediawiki|wiktionary)\.org$/,
        "amazon.com" : /^amazon\.(com|co\.uk)$/
     };
     for(var m in merge) {
