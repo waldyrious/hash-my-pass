@@ -164,7 +164,7 @@ function hmp(master) {
     // (they'll simply use the same password accross that network of sites)
     var merge = {
        "wikipedia.org" : /^(wiki([pm]edia|books|source|quote|news|species|data|voyage)|mediawiki|wiktionary)\.org$/,
-       "amazon.com" : /^amazon\.(com|co\.uk)$/
+       "amazon.com" : /^amazon\.(com|co\.uk|de)$/
     };
     for(var m in merge) {
       if ( domain.match(merge[m]) ) {
