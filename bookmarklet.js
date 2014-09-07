@@ -202,7 +202,8 @@ function hmp(master) {
       "nozbe.com",
       "tvtropes.org",
       "viactt.pt",
-      "wikicfp.com"
+      "wikicfp.com",
+      "viaverde.pt"
     );
     for(var s in noSymbols)
     {
