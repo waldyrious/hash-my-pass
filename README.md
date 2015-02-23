@@ -15,6 +15,7 @@ it can simply be calculated on the fly every time it is used.
 As a javascript bookmarklet, it works on the client side,
 so the master password is never sent through the network.
 
+### Origins & motivation
 This idea isn't new, of course,
 and is heavily based on Nic Wolff's
 [Password generator](http://angel.net/~nic/passwd.sha1.html).
@@ -50,7 +51,7 @@ Well, there are a few drawbacks to Nic's code:
    due to website-specific implementations
    of login forms.
 
-
+### Related work
 
 Other implementations of the same concept (AFAIK) are:
 - [PasswordMaker](http://www.passwordmaker.org)
@@ -66,5 +67,10 @@ Other implementations of the same concept (AFAIK) are:
   which originally used MD5.
   It also suffers from some of the same problems,
   namely #1, #2 and #4 above.
+
+### License
+Except Nic's implementation of the hashing algorithm,
+all the code is released under the MIT license.
+See the LICENSE.txt file for more details.
 
 [![Next up](https://badge.waffle.io/waldyrious/hash-my-pass.png?label=next-up)](http://waffle.io/waldyrious/hash-my-pass)
