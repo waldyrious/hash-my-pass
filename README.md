@@ -8,7 +8,8 @@ without the security problems of sharing passwords across sites.
 The hash transformation doesn't allow anyone
 who has the final password
 to guess the master password.
-And since the hash is always the same,
+And since the hash, by definition,
+always returns the same result for the same input,
 there's no need to store anything;
 it can simply be calculated on the fly every time it is used.
 As a javascript bookmarklet, it works on the client side,
