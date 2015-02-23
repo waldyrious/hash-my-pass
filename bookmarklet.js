@@ -126,12 +126,12 @@ function pressHashMyPass() {
   inputBoxDiv.style.left = "40%";
   inputBoxDiv.style.zIndex = 10000;
   // Add the content
-  inputBoxDiv.innerHTML = '<label for="hmp-pw">Enter your master password</label><br>\
-  <input type="password" id="hmp-pw" width="100"><br>\
-  <input type="button" name="send" value="hash!"\
-    onclick="javascript:hmp(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');">\
-  <a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton"\
-      style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a>';
+  inputBoxDiv.innerHTML = '<label for="hmp-pw">Enter your master password</label><br>'+
+  '<input type="password" id="hmp-pw" width="100"><br>'+
+  '<input type="button" name="send" value="hash!"'+
+    'onclick="javascript:hmp(this.previousSibling.previousSibling.value); removeElement(\'hashMypAssBox\',\'overlay\');">'+
+  '<a href="javascript:removeElement(\'hashMypAssBox\',\'overlay\')" title="Close HashMypAss Box" class="closeButton"'+
+      'style="float:right; font-size:xx-small; position:relative; top:1em;">(close)</a>';
   // Add it to the DOM
   document.body.appendChild(inputBoxDiv);
   // Focus the input box
