@@ -196,14 +196,14 @@ function hmp(master) {
     // Some websites forbid these, so we'll account for that here
     var allowSymbols = true;
     var noSymbols = new Array(
-      "gnome-look.org",
-      "klect.com",
-      "mecanto.com",
-      "nozbe.com",
-      "tvtropes.org",
-      "viactt.pt",
-      "wikicfp.com",
-      "viaverde.pt"
+      "gnome-look.org", // added 2013-05-19 (d9185d6)
+      "klect.com",      // added 2013-05-31 (21d9fb6)
+      "mecanto.com",    // added 2011-11-12 (97437ad)
+      "nozbe.com",      // added 2012-08-08 (7e107d5)
+      "tvtropes.org",   // added 2011-11-12 (97437ad)
+      "viactt.pt",      // added 2012-03-29 (83855a2)
+      "viaverde.pt",    // added 2014-09-08 (8548ef7)
+      "wikicfp.com"     // added 2012-04-04 (c1aa9b1)
     );
     for(var s in noSymbols)
     {
