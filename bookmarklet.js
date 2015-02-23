@@ -207,7 +207,7 @@ function hmp(master) {
     );
     for(var s in noSymbols)
     {
-      if ( domain.match(noSymbols[s]) ) {
+      if ( !isNaN(s) && domain.match(noSymbols[s]) ) {
         allowSymbols = false;
         break;
       }
