@@ -21,7 +21,8 @@ var base64_sha256 = function a(b) {
         for (e = 3; e + 1; e--) {
             var y = l[d] >> 8 * e & 255;
             i += (16 > y ? 0 : "") + y.toString(16) }
-    return btoa(i);
+    // convert hex to base64 (see dandavis's comment here: http://stackoverflow.com/q/23190056)
+    return btoa(i.match(/\w{2}/g).map(function(a){return String.fromCharCode(parseInt(a, 16));} ).join(""))
 };
 
 function pressHashMyPass() {
