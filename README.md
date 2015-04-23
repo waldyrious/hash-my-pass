@@ -1,18 +1,19 @@
 **Hash My Pass** is a JavaScript bookmarklet
 that generates a password for a given site
-by hashing a master password with the site's domain.
+by hashing a master password with the site's domain
+(using the [SHA-256](http://en.wikipedia.org/wiki/Secure_Hash_Algorithm) cryptographic hash function).
 
-This way you'll have the advantage of memorizing only a single password,
+This way you'll have the advantage of memorizing only a single password (the master one),
 without the security problems of sharing passwords across sites.
 
-The hash transformation doesn't allow anyone
-who has the final password
-to guess the master password.
+The hash transformation makes it virtually impossible
+to guess the master password even if one managed to obtain the site-specific password in plaintext
+(which shouldn't happen anyway on any site that stores its user data securely).
 And since the hash, by definition,
 always returns the same result for the same input,
-there's no need to store anything;
-it can simply be calculated on the fly every time it is used.
-As a javascript bookmarklet, it works on the client side,
+there's no need to store the passwords anywhere;
+they can simply be calculated on the fly every time the tool is used.
+As a javascript bookmarklet, does all its work in the client side,
 so the master password is never sent through the network.
 
 ### Origins & motivation
@@ -62,7 +63,7 @@ Other implementations of the same concept (AFAIK) are:
   while HashMyPass aims to be a simple, no-frills solution
   for web accounts only.
 - [SuperGenPass](http://supergenpass.com/).
-  Pretty similar, but uses the MD5 hashing algorithm rather than SHA-1.
+  Pretty similar, but uses the MD5 hashing algorithm rather than SHA.
   Probably because it's also based on Nic Wolff's version,
   which originally used MD5.
   It also suffers from some of the same problems,
@@ -72,5 +73,3 @@ Other implementations of the same concept (AFAIK) are:
 Except Nic's implementation of the hashing algorithm,
 all the code is released under the MIT license.
 See the LICENSE.txt file for more details.
-
-[![Next up](https://badge.waffle.io/waldyrious/hash-my-pass.png?label=next-up)](http://waffle.io/waldyrious/hash-my-pass)
