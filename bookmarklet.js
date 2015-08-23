@@ -1,4 +1,4 @@
-// Slighly uncompressed version of https://github.com/geraintluff/sha256's minimized code
+// Slightly uncompressed version of https://github.com/geraintluff/sha256's minimized code
 var base64_sha256 = function a(b) {
     function c(a, b) { return a >>> b | a << 32 - b }
     for (var d, e, f = Math.pow, g = f(2, 32), h = "length", i = "", j = [], k = 8 * b[h], l = a.h = a.h || [], m = a.k = a.k || [], n = m[h], o = {}, p = 2; 64 > n; p++)
@@ -89,7 +89,7 @@ function hmp(master) {
     // Use a canonical domain for sites that share the same user accounts over different domains,
     // so that the hash is the same for that group of sites regardless of the domain.
     // Even if someone deliberately uses separate accounts for each domain, it still works
-    // (they'll simply use the same password accross that network of sites)
+    // (they'll simply use the same password across that network of sites)
     var merge = {
        "wikipedia.org" : /^(wiki([pm]edia|books|source|quote|news|species|data|voyage)|mediawiki|wiktionary)\.org$/,
        "amazon.com" : /^amazon\.(com|co\.uk|de)$/
@@ -124,14 +124,15 @@ function hmp(master) {
     // Some websites forbid these, so we'll account for that here
     var allowSymbols = true;
     var noSymbols = new Array(
-      "gnome-look.org", // added 2013-05-19 (d9185d6)
-      "klect.com",      // added 2013-05-31 (21d9fb6)
-      "mecanto.com",    // added 2011-11-12 (97437ad)
-      "nozbe.com",      // added 2012-08-08 (7e107d5)
-      "tvtropes.org",   // added 2011-11-12 (97437ad)
-      "viactt.pt",      // added 2012-03-29 (83855a2)
-      "viaverde.pt",    // added 2014-09-08 (8548ef7)
-      "wikicfp.com"     // added 2012-04-04 (c1aa9b1)
+      "gnome-look.org",   // added 2013-05-19 (d9185d6)
+      "klect.com",        // added 2013-05-31 (21d9fb6)
+      "mecanto.com",      // added 2011-11-12 (97437ad)
+      "netemprego.gov.pt" // added 2015-08-23
+      "nozbe.com",        // added 2012-08-08 (7e107d5)
+      "tvtropes.org",     // added 2011-11-12 (97437ad)
+      "viactt.pt",        // added 2012-03-29 (83855a2)
+      "viaverde.pt",      // added 2014-09-08 (8548ef7)
+      "wikicfp.com"       // added 2012-04-04 (c1aa9b1)
     );
     for(var s in noSymbols)
     {
@@ -145,11 +146,11 @@ function hmp(master) {
       // and added to a pseudo-random position
       var posSym = p.length - posNum - 1;
       if(posSym === posNum) { posSym++; } // don't add to the same position as the number
-      var sym = String.fromCharCode( 32 + seed%15 ); // symbols: chars 32 to 46
+      var sym = String.fromCharCode( 33 + seed%14 ); // symbols: chars 33 to 46
       p = p.replaceAt(posSym, sym);
     }
     
-    // Note for future reference: in case we decide to offer lenght customization,
+    // Note for future reference: in case we decide to offer length customization,
     // we should account for size limitations in different websites.
     // For instance, travellerspoint.com only allows passwords 6 to 10 characters long, etc.
     
