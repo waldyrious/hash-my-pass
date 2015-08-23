@@ -127,7 +127,7 @@ function hmp(master) {
       "gnome-look.org",   // added 2013-05-19 (d9185d6)
       "klect.com",        // added 2013-05-31 (21d9fb6)
       "mecanto.com",      // added 2011-11-12 (97437ad)
-      "netemprego.gov.pt" // added 2015-08-23
+      "netemprego.gov.pt" // added 2015-08-23 (7cdee87)
       "nozbe.com",        // added 2012-08-08 (7e107d5)
       "tvtropes.org",     // added 2011-11-12 (97437ad)
       "viactt.pt",        // added 2012-03-29 (83855a2)
