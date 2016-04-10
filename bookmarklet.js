@@ -129,6 +129,7 @@ function hmp(master) {
       "mecanto.com",      // added 2011-11-12 (97437ad)
       "netemprego.gov.pt" // added 2015-08-23 (7cdee87)
       "nozbe.com",        // added 2012-08-08 (7e107d5)
+      "roomsketcher.com"  // added 2016-04-10
       "tvtropes.org",     // added 2011-11-12 (97437ad)
       "viactt.pt",        // added 2012-03-29 (83855a2)
       "viaverde.pt",      // added 2014-09-08 (8548ef7)
