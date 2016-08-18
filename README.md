@@ -47,7 +47,7 @@ Well, there are a few drawbacks to Nic's code:
 4. The TLD list was too limited.
    By using a more powerful regex, most domains can be covered  
    (see http://www.iana.org/domains/root/db/
-   and Mozilla’s [effective_tld_names.dat](http://mxr.mozilla.org/mozilla/source/netwerk/dns/src/effective_tld_names.dat?raw=1)).
+   and PublicSuffix.org’s [public_suffix_list.dat](https://publicsuffix.org/list/public_suffix_list.dat)).
 5. And other minor annoyances
    due to website-specific implementations
    of login forms.
