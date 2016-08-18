@@ -48,6 +48,10 @@ Well, there are a few drawbacks to Nic's code:
    By using a more powerful regex, most domains can be covered  
    (see http://www.iana.org/domains/root/db/
    and PublicSuffix.org’s [public_suffix_list.dat](https://publicsuffix.org/list/public_suffix_list.dat)).
+   (Note: while the former only covers top level domains,
+   the latter aims to actually group domains under the same ownership, regardless of level,
+   which naturally requires much more work to keep up to date
+   -- see for instance [this diff as of 2016-08-18](https://www.diffchecker.com/tcbbvy7p).)
 5. And other minor annoyances
    due to website-specific implementations
    of login forms.
