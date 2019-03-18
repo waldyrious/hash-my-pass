@@ -124,8 +124,8 @@ function hmp(master) {
     // Some websites forbid these, so we'll account for that here
     var allowSymbols = true;
     var noSymbols = new Array(
-      "aliexpress.com",   // added 2019-03-18
-      "ebikemaps.com",    // added 2017-01-10
+      "aliexpress.com",   // added 2019-03-18 (f2243e6)
+      "ebikemaps.com",    // added 2017-01-10 (ecc386c)
       "gnome-look.org",   // added 2013-05-19 (d9185d6)
       "klect.com",        // added 2013-05-31 (21d9fb6)
       "netemprego.gov.pt" // added 2015-08-23 (7cdee87)
